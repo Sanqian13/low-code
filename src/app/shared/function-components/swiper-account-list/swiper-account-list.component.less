@@ -1,0 +1,124 @@
+@import 'src/assets/css/variable.less';
+
+@avatar_width: .rem(45)[@rem];
+
+.account-list {
+
+
+    // slide 
+    .account-list-wraper {
+        position: relative;
+        padding: 0.6rem 0.35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+
+        &:hover {
+            .account-list-content {
+                font-weight: 500 !important;
+                opacity: 1 !important;
+                transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+
+        }
+    }
+
+    // 头像
+    .account-avatar {
+        position: relative;
+        display: inline-block;
+        width: @avatar_width;
+        height: @avatar_width;
+
+        img {
+            position: relative;
+            width: @avatar_width;
+            height: @avatar_width;
+            border: 1px solid #397495;
+            border-radius: 50%;
+        }
+    }
+
+    // 认证类型
+    .verified {
+        &::after {
+            content: "";
+            display: inline-block;
+            width: .rem(30)[@rem];
+            height: .rem(30)[@rem];
+            position: absolute;
+            bottom: -0.3rem;
+            right: -0.5rem;
+        }
+
+        &-1 {
+            &::after {
+                background: url(/assets/images/icon/goldenV.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+
+        &-2 {
+            &::after {
+                background: url(/assets/images/icon/blueV.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+
+        &-3 {
+            &::after {
+                background: url(/assets/images/icon/orangeV.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    .account-list-content {
+        display: inline-block;
+        width: calc(100% - @avatar_width - 1rem);
+        height: 100%;
+        margin-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        opacity: .9;
+        transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        .author {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .title {
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: #DFEDFA;
+        }
+    }
+
+    .account-list-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: #B6C1CD;
+        font-weight: 400;
+        opacity: 0.76;
+    }
+}
+
+// 底部分割线
+.content-line {
+    &::after {
+        content: "";
+        display: inline-block;
+        width: calc(100%);
+        border-bottom: 1px dashed rgba(49, 74, 101, 0.7);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}

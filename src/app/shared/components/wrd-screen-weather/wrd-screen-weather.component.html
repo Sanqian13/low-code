@@ -1,0 +1,21 @@
+<div class="screen-right">
+  <span class="screen-time-date pl20">{{today | date: "yyyy-MM-dd HH:mm:ss"}} {{ week }}</span>
+
+  <div class="wtab pr10">
+    <!-- 用户设置按钮 -->
+    <a href="javascript:;" (click)="openSettingModal()" nz-tooltip nzTooltipTitle="个人中心" nzTooltipPlacement="bottom">
+      <i class="icon-user fz20"></i>
+    </a>
+    <!-- 全屏按钮 -->
+    <a *ngIf="status == false" href="javascript:;" (click)="fullScreen()" nz-tooltip nzTooltipTitle="全屏"
+      nzTooltipPlacement="bottom">
+      <i class="icon-fullscreen"></i>
+    </a>
+    <a *ngIf="status == true" href="javascript:;" (click)="fullScreen()" nz-tooltip nzTooltipTitle="退出全屏"
+      nzTooltipPlacement="bottom">
+      <i class="icon-fullscreen-exit"></i>
+    </a>
+  </div>
+</div>
+
+<app-user-modal #userModal></app-user-modal>

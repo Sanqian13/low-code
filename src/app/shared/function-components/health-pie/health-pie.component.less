@@ -1,0 +1,65 @@
+.health-legend {
+  // &::after {
+  //   content: "";
+  //   display: inline-block;
+  //   width: calc(100% - 1rem);
+  //   border: 1px solid #283649;
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: -0.8rem;
+  // }
+
+  position: relative;
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.legend-divider {
+  position: absolute;
+  line-height: 0;
+  width: 9.3rem;
+  left: -0.7rem;
+  bottom: -0.8rem;
+  opacity: 0.5;
+}
+
+.health-legend:nth-child(1) {
+  margin-top: 3.5rem;
+}
+
+.legend-icon {
+  width: 2rem;
+  height: 2rem;
+
+  &-0 {
+    background: url(/assets/images/icon/positive-icon.png);
+    background-size: 100% 100%;
+  }
+
+  &-1 {
+    background: url(/assets/images/icon/nagitive-icon.png);
+    background-size: 100% 100%;
+  }
+}
+
+.legend-text {
+  margin-left: 0.7rem;
+
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #DCEDFB;
+}
+
+.legend-value {
+  font-size: 0.9rem;
+  font-family: "PangMen";
+
+  &-0 {
+    color: #3BBACE;
+  }
+
+  &-1 {
+    color: #E4BC45;
+  }
+}

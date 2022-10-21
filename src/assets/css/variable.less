@@ -1,0 +1,77 @@
+@designDraftWidth: 1920; //设计稿宽度
+@rem_size: 20; // 1rem大小
+
+@mainColor: #abc0d7; //全局主色
+@pageBgColor: #16161a; // 背景颜色
+@topHeigth: 5.2rem; // header高度
+@PangmenFont: "Pangmen"; // 旁门正道字体
+@YouSheBiaoTiHei: 'YouSheBiaoTiHei'; // 优设标题黑
+
+@white: #fff;   // 白色
+
+@module_title_green: #47ee72; // 模块小标题 装饰斜杠&圆点
+@module_title_blue: #72CDF8; // 模块小标题 文字颜色
+
+@card_body_bg: #191E27;
+
+@up_yellow: #F8AA0E; // 数据上升颜色
+@down_blue: #46ECEE; // 数据下降颜色
+
+@text_light_blue: #dbedfb; // 文字色 淡蓝色1
+@text_light_green: #50d9cd; // 文字色 淡绿色1
+
+@hot_yellow: #E5BD46;   // 热度 黄色
+@source_blue: #72CDF8;  // 来源 蓝色
+@article_green: #66D7D3;    // 相似文章数 绿色
+
+// px转rem mix
+.rem(@px) {
+    @var: unit(@px / @rem_size);
+    @rem: ~'@{var}rem';
+}
+
+//em单位 1920   20px=1rem
+@1px: .rem(1)[@rem];
+@2px: .rem(2)[@rem];
+@3px: .rem(3)[@rem];
+@4px: .rem(4)[@rem];
+@5px: .rem(5)[@rem];
+@6px: .rem(6)[@rem];
+@7px: 0.35rem;
+@8px: 0.4rem;
+@9px: .rem(9)[@rem];
+@10px: 0.5rem;
+@11px: .rem(11)[@rem];
+@12px: 0.6rem;
+@14px: 0.7rem;
+@15px: 0.75rem;
+@16px: 0.8rem;
+@18px: 0.9rem;
+@20px: 1rem;
+@22px: 1.1rem;
+@24px: 1.2rem;
+@25px: 1.25rem;
+@26px: 1.3rem;
+@28px: 1.4rem;
+@30px: 1.5rem;
+@32px: 1.6rem;
+@34px: 1.7rem;
+@35px: 1.75rem;
+@36px: 1.8rem;
+@38px: .rem(38)[@rem];
+@40px: 2rem;
+@42px: 2.1rem;
+@44px: 2.2rem;
+@45px: 2.25rem;
+@46px: .rem(46)[@rem];
+@48px: 2.4rem;
+@50px: 2.5rem;
+@52px: 2.6rem;
+@53px: 2.65rem;
+@54px: .rem(54)[@rem];
+@55px: 2.75rem;
+@56px: 2.8rem;
+@58px: .rem(58)[@rem];
+@60px: 3rem;
+@70px: 3.5rem;
+@80px: 4rem;

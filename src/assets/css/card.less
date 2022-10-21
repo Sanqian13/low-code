@@ -1,0 +1,125 @@
+@height: @30px;
+
+.card {
+  & .card-header {
+    position: relative;
+    height: @height;
+    line-height: @height;
+    padding: 0 @16px;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    background-image: url(/assets/images/cards/card-titleBg.png);
+    background-size: 100% 100%;
+  }
+
+  & .card-header .card-title {
+    font-weight: 400;
+    font-size: @18px;
+  }
+
+  & .card-header .card-title a {
+    color: @mainColor;
+  }
+
+  & .actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  & .card-body {
+    height: calc(~"100%" - @height - 0.5rem);
+    position: relative;
+  }
+}
+
+.card-content {
+  padding: @10px @15px;
+  position: relative;
+  background-color: @card_body_bg;
+  border-bottom: solid 1px rgba(47, 90, 148, 0.6);
+}
+
+.card-content2 {
+  border-bottom: none;
+  border-top: solid 1px rgba(47, 90, 148, 0.6);
+}
+
+.card-content3 {
+  border-bottom: none;
+  background-color: rgba(36, 43, 56, 0.4);
+}
+
+.card-body>div {
+  height: 100%;
+}
+
+.card-text {
+  padding: @5px @15px;
+  margin: 0 -@15px;
+  background-color: #222732;
+  color: #e3f4f7;
+}
+
+// action 查看更多按钮
+.show-more-btn {
+  display: flex;
+  align-items: center;
+  width: 5rem;
+  height: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #BFF4FF;
+  background: url(/assets/images/cards/more-btn-bg.png) no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.type-btns {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.type-btn {
+  position: relative;
+  width: 3.55rem;
+  min-width: 70px;
+  height: 1.2rem;
+  text-align: center;
+  margin-right: -7px;
+  line-height: 1.2rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #BFD9F1;
+  opacity: 0.8;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // transform: skewX(-30deg);
+    // background: #1E3645;
+    background: url('/assets/images/cards/action-btn.png');
+    background-size: 100% 100%;
+    border-radius: 2px;
+    transition: all .3s;
+    z-index: -1;
+  }
+
+  &.active,
+  &:hover {
+    &:after {
+      // background: #286275;
+      background: url('/assets/images/cards/action-btn-active.png');
+      background-size: 100% 100%;
+    }
+
+    color: #FFFFFF;
+    opacity: 1;
+  }
+}

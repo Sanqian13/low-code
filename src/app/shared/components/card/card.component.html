@@ -1,0 +1,32 @@
+<div
+  class="card cards"
+  [ngStyle]="{
+    'height': cardHeight,
+    'margin-bottom': marginBottom,
+    'margin-top': marginTop,
+    'padding': bodyStyle
+  }"
+>
+  <div class="card-header" *ngIf="title">
+    <h3 class="card-title rel">
+      <span>{{ title }}</span>
+      <ng-container *ngIf="describe">
+        <i
+          class="icon ml10 icon-wenhao"
+          style="color: #96bdc8; cursor: pointer"
+          [nzTooltipOverlayClassName]="'explainTooltip'"
+          [nzTooltipTitle]="describe"
+          nzTooltipPlacement="rightTop"
+          nz-tooltip
+          ></i>
+      </ng-container>
+      <span class="title-num inline-block ml10">
+        <ng-content select="[titleNum]"></ng-content>
+      </span>
+      <ng-content select="[card-action]"></ng-content>
+    </h3>
+  </div>
+  <div class="card-body hot-cards" [ngClass]="{'height-full': title == ''}">
+    <ng-content select="[card-body]"></ng-content>
+  </div>
+</div>

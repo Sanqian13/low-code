@@ -1,0 +1,95 @@
+@import 'src/assets/css/variable.less';
+
+.single-list {
+
+    // index
+    .icon-number-bg {
+        width: .rem(42)[@rem];
+        height: .rem(42)[@rem];
+        text-align: center;
+        line-height: .rem(42)[@rem];
+        font-size: .rem(20)[@rem];
+        font-family: 'PangMenZhengDao';
+        font-weight: 400;
+        color: #3EC5DA;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: inline-block;
+            width: 2.1rem;
+            height: 2.1rem;
+            background: url(/assets/images/icon/swiper-index-bg.png) no-repeat;
+            background-size: 100% 100%;
+            animation: radar-beam 3s infinite linear;
+            transform: translate(0, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .single-list-item {
+        width: calc(100% - 3.5rem);
+        height: 100%;
+        margin-left: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title {
+            display: inline-block;
+            font-size: .rem(18)[@rem];
+            font-weight: 400;
+            color: #FFF;
+            opacity: 0.76;
+        }
+    }
+
+    .single-list-title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .single-list-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: #B6C1CD;
+        font-weight: 400;
+        opacity: 0.76;
+    }
+    .flex-reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+// 底部分割线
+.single-list-wraper {
+    position: relative;
+    padding: 0.75rem 0;
+
+    &-active,
+    &:hover {
+        .title {
+            font-weight: 500 !important;
+            opacity: 1 !important;
+        }
+
+    }
+}
+
+.content-line {
+    &::after {
+        content: "";
+        display: inline-block;
+        width: calc(100% - 3.5rem);
+        margin-left: 3.5rem;
+        border-bottom: 1px dashed rgba(49, 74, 101, 0.7);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}

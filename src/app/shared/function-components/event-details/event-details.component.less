@@ -1,0 +1,39 @@
+    .panel {
+        background: rgba(14, 26, 34, .7);
+        height: 15.7rem;
+        min-height: 314px;
+        overflow: hidden;
+        padding: 1.25rem 0.75rem 0;
+
+        .panel-title {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 1.25rem;
+            }
+        }
+
+        .panel-body {
+            height: calc(100% - 1.5rem);
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            .content-img {
+                padding: 0 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+                font-size: 0.7rem;
+                font-weight: 300;
+                color: #DFEDFA;
+            }
+            img {
+                max-width: 80%;
+            }
+        }
+    }

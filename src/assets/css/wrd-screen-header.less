@@ -1,0 +1,174 @@
+// header
+.wrd-screen-header {
+  height: 100%;
+  padding: 0 @10px;
+  line-height: @topHeigth - 0.5rem;
+  background-image: url(/assets/images/header/header-bg.png);
+  background-size: 100% 100%;
+
+  & .left,
+  & .right {
+    position: relative;
+    z-index: 1;
+    width: 31%;
+  }
+
+  & .right {
+    text-align: right;
+  }
+
+  & .center {
+    width: 37%;
+    text-align: center;
+    position: relative;
+  }
+}
+
+// 大屏标题
+.wrd-screen-title {
+  display: inline-block;
+  font-size: @40px;
+  font-weight: 400;
+  line-height: @topHeigth - 1.5rem;
+  color: rgba(255, 255, 255, 0);
+  text-shadow: none;
+  transition: text-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-image: linear-gradient(90deg, rgba(228, 246, 255, 1), rgba(170, 226, 250, 1));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    text-shadow: 0 0 1px #E8F7FF;
+    transition: text-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+}
+
+// 左侧 时间
+.screen-time,
+.screen-right {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  margin-top: 0.7rem;
+}
+.screen-time {
+  justify-content: flex-end;
+}
+
+.screen-time-date {
+  display: inline-block;
+  font-size: @20px;
+  font-weight: 500;
+  color: #ABC0D7;
+  background: linear-gradient(0deg, rgba(159, 201, 210, .9) 40%, rgba(214, 226, 236, 1) 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.screen-menu {
+
+  &-item {
+    display: inline-block;
+    width: 7rem;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      width: 100%;
+      height: 2.3rem;
+      margin-top: 0.75rem;
+      line-height: 1.9rem;
+      font-size: 0.97rem;
+      font-family: 'Pangmen';
+      font-weight: 400;
+      color: #C4D9F1;
+    }
+  }
+
+  &-left {
+    position: relative;
+    background-image: url(/assets/images/header/menu-left.png);
+    background-size: 100% 100%;
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -0.8rem;
+      width: 1.6rem;
+      height: 0.2rem;
+      left: 2.4rem;
+      background-color: #4F8EBF;
+    }
+  }
+
+  .slide-left {
+    &:before {
+      left: 80%;
+    }
+  }
+
+  &-left:hover,
+  &-left.active {
+    color: #fff;
+    background-image: url(/assets/images/header/menu-left-active.png);
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:before {
+      background-color: #00EAFF;
+      box-shadow: 0 0 10px #00EAFF,
+    }
+  }
+
+  &-right {
+    position: relative;
+    background-image: url(/assets/images/header/menu-right.png);
+    background-size: 100% 100%;
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -0.8rem;
+      width: 1.6rem;
+      height: 0.2rem;
+      right: 2rem;
+      background-color: #4F8EBF;
+    }
+  }
+
+  .slide-right {
+    &:before {
+      right: 80%;
+    }
+  }
+
+  &-right:hover,
+  &-right.active {
+    color: #fff;
+    background-image: url(/assets/images/header/menu-right-active.png);
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:before {
+      background-color: #00EAFF;
+      box-shadow: 0 0 10px #00EAFF,
+    }
+  }
+}
+
+
+.wtab {
+  display: inline-block;
+
+  a {
+    padding: 0.35rem 1.4rem 0.6rem 1.3rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-image: url(/assets/images/header/full-screen.png);
+    background-size: 100% 100%;
+  }
+}

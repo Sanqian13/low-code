@@ -1,0 +1,33 @@
+<div class="spread-panel" style="width: 100%; height: 100%">
+  <div class="region-title text-center">
+    <span style="width: 3.4rem">来源</span>
+    <span style="width: calc(100% - 6.8rem)">信息量</span>
+    <span style="width: 3.4rem">占比</span>
+  </div>
+  <ul class="region-list text-center">
+    <!-- empty -->
+    <ng-container *ngIf="!loading && list && list.length == 0">
+      <app-empty></app-empty>
+    </ng-container>
+    <!-- loading -->
+    <ng-container *ngIf="loading">
+      <nz-spin [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+    </ng-container>
+    <!-- list -->
+    <ng-container *ngIf="!loading && list && list.length">
+      <!-- <li class="region-item" *ngFor="let item of list; let i = index">
+        <span style="width: 3.4rem; color: #DCEDFB;">{{ item.name }}</span>
+        <span style="width: calc(100% - 6.8rem); color: #60CCFF;">{{ item.value }}</span>
+        <span style="width: 3.4rem" class="region-num">{{ item.proportion }}</span>
+      </li> -->
+
+      <app-swiper-auto [slidesPerView]="7" [mousewheel]="true" [direction]="'vertical'" [swiperCont]="'platformSwiper'" [autoplayShow]="true">
+        <div swiperSlide class="swiper-slide region-item" *ngFor="let item of list; let i = index">
+          <span style="width: 3.4rem; color: #DCEDFB;">{{ item.name }}</span>
+          <span style="width: calc(100% - 6.8rem); color: #60CCFF;">{{ item.value }}</span>
+          <span style="width: 3.4rem" class="region-num">{{ item.proportion }}</span>
+        </div>
+      </app-swiper-auto>
+    </ng-container>
+  </ul>
+</div>

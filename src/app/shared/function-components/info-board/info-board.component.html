@@ -1,0 +1,23 @@
+<div [ngStyle]="{'height': height}">
+  <ng-container *ngIf="list && list.length">
+    <div class="board-list">
+      <ng-container *ngFor="let item of list">
+        <div class="board-item">
+          <div style="height: 50%" class="board-name">
+            <span class="fz16">{{item.name}}</span>
+          </div>
+          <div style="height: 50%" class="board-content">
+            <div>
+              <div class="board-value {{item.valueColor}}">{{item.value}}</div>
+              <div *ngIf="item.unit" class="board-unit">{{item.unit}}</div>
+            </div>
+          </div>
+          <div class="board-icon flex-center">
+            <img [src]="item.icon" alt="信息" [ngClass]="{'board-small-icon': item.smallIcon == true}">
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </ng-container>
+</div>

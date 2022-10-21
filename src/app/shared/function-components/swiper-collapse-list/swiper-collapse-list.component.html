@@ -1,0 +1,96 @@
+<div class="collapse-list mt20" [ngStyle]="{ height: contentHeight }">
+  <!-- empty -->
+  <app-empty *ngIf="!loading && !listDatas && listDatas.length == 0"></app-empty>
+
+  <!-- loading -->
+  <nz-spin *ngIf="loading" [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+
+  <!-- list -->
+  <ng-container hidden="loading || !listDatas || listDatas.length == 0">
+    <app-swiper-auto #collapseSwiper [slidesPerView]="slidesPerViewNum" [mousewheel]="mousewheel"
+      [direction]="'vertical'" [swiperCont]="swiperID">
+      <div swiperSlide class="swiper-slide collapse-list-wraper" *ngFor="let item of listDatas; let i = index"
+        [ngClass]="{ 'swiper-line': swiperLine == true, 'collapse-expand-height dis-block': item.checked}">
+        <div class="collapse-swiper-slide"
+          [ngClass]="{ 'collapse-swiper-slide-active': activeIndex == i, 'mt6': item.checked }">
+          <!-- 专题 -->
+          <ng-container *ngIf="showType == 1">
+            <!-- 列表左侧index -->
+            <div class="icon-number-bg">{{ i + 1 }}</div>
+            <!-- 列表右侧 -->
+            <div class="collapse-list-item">
+              <!-- 标题 -->
+              <div class="collapse-list-title" (click)="expand(item)">
+                <a href="javascript:void(0);" class="title nowrap" (click)="openData(i)">专题：{{item.name}}</a>
+                <i class="icon-expand icon-arrow-down abs" [ngClass]="{'icon-collapse': item.checked}"></i>
+              </div>
+              <!-- 底部 -->
+              <div class="collapse-list-bottom">
+                <div>
+                  <i class="icon-source"></i>
+                  专题来源: <span class="source_blue" appOpenUrl openUrl="{{item.websiteLink}}">{{item.websiteName}}</span>
+                </div>
+                <!-- <div>
+                  <i class="icon-hot"></i>
+                  传播热度: <span class="hot_yellow">{{item.spreadHot}}</span>
+                </div> -->
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- 站点 -->
+          <ng-container *ngIf="showType == 2">
+            <!-- 列表右侧 -->
+            <div class="collapse-list-item width-full">
+              <!-- 标题 -->
+              <div class="collapse-list-title rel" (click)="expand(item)">
+                <a href="javascript:void(0);" class="title nowrap" (click)="openData(i)">{{item.name}}</a>
+                <i class="icon-expand icon-arrow-down abs" [ngClass]="{'icon-collapse': item.checked}"></i>
+              </div>
+              <!-- 底部 -->
+              <div class="collapse-list-bottom">
+                <div>
+                  近30天发文<span class="source_blue">{{item.manuscriptPlatformArticleVOList.length}}</span>篇
+                </div>
+                <!-- <div>
+                  <i class="icon-hot"></i>
+                  传播热度: <span class="hot_yellow">{{item.spreadHot}}</span>
+                </div> -->
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+        <!-- 展开列表 -->
+        <ng-container *ngIf="item.checked">
+          <ul class="manuscript-list">
+            <ng-container
+              *ngIf="item.manuscriptPlatformArticleVOList && item.manuscriptPlatformArticleVOList.length; else empty">
+              <li *ngFor="let manuscript of item.manuscriptPlatformArticleVOList;">
+                <!-- 标题 -->
+                <div class="collapse-list-title">
+                  <a href="javascript:void(0);" class="title nowrap path"
+                    (click)="openManuscript(manuscript.id)">{{manuscript.articleTitle}}</a>
+                </div>
+                <!-- 底部 -->
+                <div class="collapse-list-bottom">
+                  <div class="nowrap">
+                    <i class="icon-time"></i>
+                    发布日期: {{manuscript.issueTime | date: 'yyyy年MM月dd日'}}
+                  </div>
+                  <div class="spread-hot">
+                    <i class="icon-hot"></i>
+                    传播热度: <span class="hot_yellow">{{manuscript.heat}}</span>
+                  </div>
+                </div>
+              </li>
+            </ng-container>
+          </ul>
+          <ng-template #empty>
+            <app-empty [size]="'small'"></app-empty>
+          </ng-template>
+        </ng-container>
+      </div>
+    </app-swiper-auto>
+  </ng-container>
+</div>

@@ -1,0 +1,63 @@
+  .board-list {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    /*  声明列的宽度  */
+    grid-template-columns: repeat(4, calc((100% - 2.4rem) / 4));
+    /*  声明行间距和列间距  */
+    grid-gap: 1rem 0.8rem;
+    /*  声明行的高度  */
+    // grid-template-rows: calc((100% - 1rem) / 2);
+
+    .board-item {
+      position: relative;
+      font-weight: 400;
+      background: url('/assets/images/panel/info-panel1.png');
+      background-size: 100% 100%;
+    }
+
+    .board-name {
+      font-family: 'YouSheBiaoTiHei';
+      padding-left: 0.5rem;
+      display: flex;
+      align-items: center;
+      color: #FEFFFF;
+      opacity: 0.8;
+    }
+
+    .board-content {
+      display: flex;
+      align-items: center;
+      padding-left: 0.5rem;
+      color: #DEFFFA;
+    }
+
+    .board-value {
+      font-family: 'YouSheBiaoTiHei';
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .board-unit {
+      font-weight: 300;
+      opacity: 0.6;
+    }
+
+    .board-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .board-small-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+  }

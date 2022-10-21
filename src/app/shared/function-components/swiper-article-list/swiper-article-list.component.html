@@ -1,0 +1,48 @@
+<div class="single-list" [ngStyle]="{ height: contentHeight }">
+  <!-- empty -->
+  <app-empty *ngIf="!loading && (!listDatas || listDatas.length == 0)"></app-empty>
+
+  <!-- loading -->
+  <nz-spin *ngIf="loading" [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+
+  <!-- list -->
+  <ng-container *ngIf="!loading && listDatas && listDatas.length">
+    <app-swiper-auto #singleSwiper [autoplayShow]="true" [effect]="effect" [delay]="delay"
+      [slidesPerView]="slidesPerViewNum" [mousewheel]="mousewheel" [direction]="'vertical'" [swiperCont]="swiperID" [roundLength]="true">
+      <div swiperSlide class="swiper-slide single-list-wraper" *ngFor="let item of listDatas; let i = index"
+        [ngClass]="{ 'content-line': swiperLine == true}">
+        <!-- 列表左侧index -->
+        <div class="icon-number-bg">{{ i + 1 }}</div>
+        <!-- 列表右侧 -->
+        <div class="single-list-item">
+          <!-- 标题 -->
+          <div class="single-list-title">
+            <a href="javascript:void(0);" class="title nowrap" (click)="openData(item)" [innerHtml]="item.title"></a>
+          </div>
+          <!-- 底部 -->
+          <div class="single-list-bottom" [ngClass]="{'flex-reverse': reverse}">
+            <div class="nowrap" style="width: 34%">
+              <i class="{{bottomConfig[0].icon}}"></i>
+              {{bottomConfig[0].label}}:
+              <span>{{item[bottomConfig[0].key] | date: 'yyyy年MM月dd日'}}</span>
+            </div>
+
+            <div class="nowrap" style="width: 30%">
+              <i class="{{bottomConfig[1].icon}}"></i>
+              {{bottomConfig[1].label}}:
+              <span nz-tooltip [nzTooltipTitle]="item[bottomConfig[1].key]" class="{{bottomConfig[1].color}}" appOpenUrl openUrl="{{item[bottomConfig[1].urlkey]}}">
+                {{item[bottomConfig[1].key] || '暂无'}}
+              </span>
+            </div>
+
+            <div class="nowrap" style="width: 30%">
+              <i class="{{bottomConfig[2].icon}}"></i>
+              {{bottomConfig[2].label}}:
+              <span class="{{bottomConfig[2].color}}">{{item[bottomConfig[2].key]}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-swiper-auto>
+  </ng-container>
+</div>

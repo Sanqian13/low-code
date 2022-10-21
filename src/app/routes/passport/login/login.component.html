@@ -1,0 +1,54 @@
+<div class="login-content">
+  <div class="login-wraper">
+    <!-- 左侧模型 s -->
+    <div class="login-model">
+      <img src="/assets/images/login/login_model.png" alt="模型">
+    </div>
+    <!-- 左侧模型 e -->
+
+    <!-- 右侧登录 s -->
+    <div class="login-wrap">
+      <div class="login-wrap-title">
+        <img src="/assets/images/login/login_title.png" alt="">
+      </div>
+      <div class="login-wrap-content">
+        <form nz-form [formGroup]="form" (ngSubmit)="submit()" role="form">
+          <!-- <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert> -->
+          <div *ngIf="error" class="error-alert mb-lg"><i class="icon"></i><span>{{error}}</span></div>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="请输入用户名!">
+              <nz-input-group [nzPrefix]="prefixTemplateUser">
+                <input nz-input formControlName="username" placeholder="请输入用户名" />
+              </nz-input-group>
+              <ng-template #prefixTemplateUser><i class="icon text_blue" style="font-size: 1.7rem;">&#xe6a6;</i>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="请输入密码!">
+              <nz-input-group [nzPrefix]="prefixTemplatePassword">
+                <input nz-input type="password" formControlName="password" placeholder="请输入密码" />
+              </nz-input-group>
+              <ng-template #prefixTemplatePassword><i class="icon text_blue" style="font-size: 1.7rem;">&#xe6a7;</i>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+          <div style="margin-bottom: 2rem;">
+            <button class="login-btn" nz-button type="submit" nzType="primary" [nzLoading]="loading" nzBlock>
+              登录
+            </button>
+          </div>
+          <div class="des">温馨提示：建议使用<span class="text-color2">谷歌</span>或者<span
+              class="text-color2">火狐浏览器</span>访问系统！</div>
+        </form>
+      </div>
+    </div>
+    <!-- 右侧登录 e -->
+  </div>
+  <!-- <div class="copyright">
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502001915" target="_blank" class="v-a-m">
+      <img src="https://cdn-files.wrd.cn/web/css/indexV4/base/images/beian.png" alt=""><span>沪公网安备
+        31011502001915号</span></a>
+    <a href="https://beian.miit.gov.cn" target="_blank" class="v-a-m pl10"><span>沪ICP备09090754号-24</span></a>
+  </div> -->
+</div>

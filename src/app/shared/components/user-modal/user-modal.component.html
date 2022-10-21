@@ -1,0 +1,25 @@
+<nz-modal [nzWidth]="modalWidth" [nzMaskStyle]="maskStyle" [nzClassName]="'user-modal'" [nzFooter]="null" [(nzVisible)]="isVisible" nzTitle=""
+  (nzOnCancel)="hideModal()">
+  <div class="user-title">
+    个人中心
+  </div>
+  <div class="user-table">
+    <div class="user-line">
+      <div class="user-label"><i class="icon mr10 icon-modal-author"></i>用户名</div>
+      <div class="user-value">{{username}}</div>
+    </div>
+    <div class="user-line">
+      <div class="user-label"><i class="icon mr10 icon-unit"></i>客户单位</div>
+      <div class="user-value">{{unitName}}</div>
+    </div>
+    <div class="user-line">
+      <div class="user-label"><i class="icon mr10 icon-modal-time"></i>到期时间</div>
+      <div class="user-value">{{expirationTime | date: 'yyyy年MM月dd日'}}</div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button nz-button nzType="primary"  [nzLoading]="loading" class="user-btn" (click)="logout()">退出登录</button>
+  </div>
+
+</nz-modal>

@@ -1,0 +1,44 @@
+<div class="height-full">
+  <div class="board-list">
+    <!-- 传播热度 -->
+    <div class="board-item">
+      <div style="height: 42.3%" class="board-name">
+        <span>传播热度</span>
+      </div>
+      <div style="height: 58.7%" class="board-value">
+
+        <app-numberAnimate class="spread-blue" [nums]="spreadHot" [numberRunID]="'numberRunID1'" [dot]="2"></app-numberAnimate>
+        <!-- <div class="spread-blue">{{spreadHot}}</div> -->
+      </div>
+      <div class="board-icon">
+        <img src="/assets/images/icon/spread-hot.png" alt="">
+      </div>
+    </div>
+    <!-- 全网信息量 -->
+    <div class="board-item">
+      <div style="height: 42.3%" class="board-name">
+        <span>全网信息量</span>
+      </div>
+      <div style="height: 58.7%" class="board-value">
+        <!-- <div class="total-blue">{{totalNum}}</div> -->
+        <app-numberAnimate class="total-blue" [nums]="totalNum" [numberRunID]="'numberRunID2'"></app-numberAnimate>
+      </div>
+      <div class="board-icon">
+        <img src="/assets/images/icon/total-num.png" alt="">
+      </div>
+    </div>
+    <!-- 敏感信息占比 -->
+    <div class="board-item">
+      <div style="height: 42.3%" class="board-name">
+        <span>敏感信息占比</span>
+      </div>
+      <div style="height: 58.7%" class="board-value">
+        <app-numberAnimate class="sensitive-yellow" [nums]="sensitiveProportion" [numberRunID]="'numberRunID3'" [dot]="2" [percentage]="true"></app-numberAnimate>
+        <!-- <div class="sensitive-yellow">{{sensitiveProportion}}</div> -->
+      </div>
+      <div class="board-icon">
+        <img src="/assets/images/icon/sensitive-info.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>

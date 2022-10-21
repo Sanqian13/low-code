@@ -1,0 +1,34 @@
+<div class="new-list" [ngStyle]="{ height: contentHeight }">
+  <!-- empty -->
+  <app-empty *ngIf="!loading && listDatas.length == 0"></app-empty>
+
+  <!-- loading -->
+  <ng-container *ngIf="loading">
+    <nz-spin [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+  </ng-container>
+
+  <!-- content -->
+  <ng-container *ngIf="!loading && listDatas && listDatas.length > 0">
+    <app-swiper [slidesPerView]="slidesPerViewNum" [direction]="'vertical'" [swiperCont]="swiperID">
+      <div swiperSlide class="swiper-slide new-list-wraper" [ngClass]="{ 'swiper-line': swiperLine == true }"
+        *ngFor="let item of listDatas; let i = index">
+        <div class="icon-arrow-bg">
+          <img src="/assets/images/icon/icon-jiantou.png" alt="" />
+        </div>
+        <div class="new-list-item" [ngClass]="{ 'event-list-item': isStyle == 1 }">
+          <a href="javascript:void(0);" class="title" (click)="openData(item)">
+            <span class="text nowrap" [innerHtml]="item.title"></span>
+          </a>
+          <div class="origin text-shadow_blue nowrap" nz-tooltip [nzTooltipTitle]="item.captureWebsiteName">
+            {{item.captureWebsiteName}}
+          </div>
+          <div class="similar-num">
+            <span class="num PangmenFont0" *ngIf="!item.rise">{{item.repeatNum}}</span>
+            <span class="up num PangmenFont0" *ngIf="item.rise == 1">{{item.repeatNum}}</span>
+            <span class="down num PangmenFont0" *ngIf="item.rise == 2">{{item.repeatNum}}</span>
+          </div>
+        </div>
+      </div>
+    </app-swiper>
+  </ng-container>
+</div>

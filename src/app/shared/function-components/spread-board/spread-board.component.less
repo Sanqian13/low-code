@@ -1,0 +1,66 @@
+@spread-blue: #46ECEE;
+@total-info-blue: #60CCFF;
+@sensitive-yellow: #EEA920;
+
+.spread-blue {
+  color: @spread-blue;
+}
+.total-blue {
+  color: @total-info-blue;
+}
+.sensitive-yellow {
+  color: @sensitive-yellow;
+}
+
+
+.board-list {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  /*  声明列的宽度  */
+  grid-template-columns: repeat(3, calc((100% - 2rem) / 3));
+  /*  声明行间距和列间距  */
+  grid-gap: 0 1rem;
+  /*  声明行的高度  */
+  grid-template-rows: 100%;
+
+  .board-item {
+    position: relative;
+    font-family: 'YouSheBiaoTiHei';
+    font-weight: 400;
+    background: url('/assets/images/panel/info-panel2.png');
+    background-size: 100% 100%;
+  }
+
+  .board-name {
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #FEFFFF;
+    opacity: 0.8;
+  }
+
+  .board-value {
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #DEFFFA;
+    opacity: 0.9;
+  }
+
+  .board-icon {
+    width: 2.9rem;
+    height: 2.9rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}

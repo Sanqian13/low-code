@@ -1,0 +1,112 @@
+@keyframes radar-beam {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes beat-up-down {
+  0% {
+    opacity: .8;
+    scale: 1.2;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.4;
+  }
+
+  100% {
+    opacity: .8;
+    scale: 1.2;
+  }
+}
+
+.pie3d-animation {
+  background: url('/assets/images/bg/pie3d-animation.png');
+  background-size: 12rem 6rem;
+  background-repeat: no-repeat;
+  background-position: 50% 48%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.chart-animation {
+  &:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    -webkit-animation: radar-beam 3s infinite linear;
+    /*匀速 循环*/
+    animation: radar-beam 3s infinite linear;
+    /*匀速 循环*/
+    transform: translate(0, 0);
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    bottom: -1px;
+    right: 2px;
+    left: -1px;
+  }
+}
+
+.chart-animation-circle {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 5.8rem;
+  height: 5.8rem;
+
+  margin: auto;
+
+  &:after {
+    content: " ";
+    background: url(/assets/images/bg/pie-animate.png) no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+
+.pie-health-animation {
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 5.65rem;
+    height: 5.65rem;
+    background: url("/assets/images/bg/pie-health-animate.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-animation: radar-beam 3s infinite linear;
+    /*匀速 循环*/
+    animation: radar-beam 3s infinite linear;
+    /*匀速 循环*/
+    z-index: 0;
+    transform: translate(50%, 50%);
+  }
+
+  &>div {
+    z-index: 1;
+  }
+}

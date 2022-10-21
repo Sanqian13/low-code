@@ -1,0 +1,77 @@
+<ng-container *ngIf="!loading && isData == 0">
+  <app-empty></app-empty>
+</ng-container>
+
+<ng-container *ngIf="loading">
+  <nz-spin [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+</ng-container>
+
+<ng-container *ngIf="!loading && isData == 1">
+  <!-- 上部分 视频 -->
+  <div style="height: 100%; display: flex">
+    <!-- 左边视频主体 -->
+    <div style="width: calc(100% - 10.35rem); margin-right: 2rem">
+      <div class="video-title">
+        <div style="width: 1rem">
+          <img src="/assets/images/icon/icon-jiantou.png" alt="视频标题" />
+        </div>
+        <div style="width: calc(100% - 1rem)" class="text-clamp2">
+          【<span style="color: #3FD1D4">{{activeIndex + 1}}/{{videoList.length}}</span>】视频标题/简介：<span *ngIf="videoList[activeIndex]" class="video-title-text" [innerHtml]="videoList[activeIndex].title" appOpenUrl [openUrl]="videoList[activeIndex].videoUrl"></span>
+        </div>
+      </div>
+      <div class="video-body">
+          <app-swiper-auto
+            #videoSwiper
+            [slidesPerView]="1"
+            [swiperButton]="true"
+            [nextButton]="'swiper-button3-next'"
+            [prevButton]="'swiper-button3-prev'"
+            [paginationShow]="false"
+            [direction]="'horizontal'"
+            [swiperCont]="'videoSwiperId1'"
+            [autoPlay]="true"
+            [delay]="10"
+            [noSwiping]="true"
+            (slidesIndexChange)="getActiveIndex($event)"
+          >
+            <div
+              swiperSlide
+              class="swiper-slide swiper-no-swiping"
+              *ngFor="let item of videoList; let i = index">
+              <app-video
+                [(src)]="item.videoUrl"
+                [height]="'8.7rem'"
+                [imgUrl]="item.coverPictureUrl"
+                style="display: inline-block; width: 100%; height: 100%"
+              ></app-video>
+            </div>
+          </app-swiper-auto>
+      </div>
+    </div>
+    <!-- 右边视频信息 -->
+    <div style="width: 8.35rem">
+      <ul class="video-info">
+        <li>
+          <img class="video-info-icon" src="/assets/images/video/user.svg" alt="用户名"/>
+          <span class="video-info-text nowrap">用户名：{{ videoList[activeIndex].author }}</span>
+        </li>
+        <li>
+          <img class="video-info-icon" src="/assets/images/video/platform.svg" alt="平台"/>
+          <span class="video-info-text nowrap">平台：{{ videoList[activeIndex].captureWebsiteName }}</span>
+        </li>
+        <li>
+          <img class="video-info-icon" src="/assets/images/video/time.svg" alt="时间"/>
+          <span class="video-info-text nowrap">时间：{{ videoList[activeIndex].published  | date: 'MM-dd HH:mm'}}</span>
+        </li>
+        <li>
+          <img class="video-info-icon" src="/assets/images/video/comment.svg" alt="评论" />
+          <span class="video-info-text nowrap">评论：<span class="video-blue">{{videoList[activeIndex].comments}}</span></span>
+        </li>
+        <li>
+          <img class="video-info-icon" src="/assets/images/video/like.svg" alt="点赞" />
+          <span class="video-info-text">点赞：<span class="video-blue">{{ videoList[activeIndex].praiseNum }}</span></span>
+        </li>
+        </ul>
+        </div>
+        </div>
+</ng-container>

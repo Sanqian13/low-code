@@ -1,0 +1,158 @@
+/* 定义字体 */
+@font-face {
+  font-family: "Pangmen";
+  src: url("/assets/fonts/pmzd.woff2");
+}
+
+@font-face {
+  font-family: "YouSheBiaoTiHei";
+  src: url("/assets/fonts/YouSheBiaoTiHei.woff2");
+}
+
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 1572446 */
+  src: url('//at.alicdn.com/t/c/font_1572446_lfnpd4k7lkc.woff2?t=1666064737592') format('woff2'),
+       url('//at.alicdn.com/t/c/font_1572446_lfnpd4k7lkc.woff?t=1666064737592') format('woff'),
+       url('//at.alicdn.com/t/c/font_1572446_lfnpd4k7lkc.ttf?t=1666064737592') format('truetype');
+}
+
+.icon,
+[class^="icon-"],
+[class*="icon-"] {
+  font-family: "iconfont" !important;
+  font-size: 0.8rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 生成font-size的class fz10 ~ fz36
+.generate-fz(36, 10);
+
+.generate-fz(@n, @i: 1) when (@i =< @n) {
+  .fz@{i} {
+    font-size: .rem(@i)[@rem];
+  }
+
+  .generate-fz(@n, (@i + 1));
+}
+
+.PangmenFont {
+  font-family: @PangmenFont;
+  letter-spacing: 0.1rem;
+}
+
+.PangmenFont0 {
+  font-family: @PangmenFont;
+  letter-spacing: 0;
+}
+
+.YouSheBiaoTiHei {
+  font-family: @YouSheBiaoTiHei;
+}
+
+
+// 全屏
+.icon-fullscreen-exit::before {
+  content: "\e736";
+}
+
+.icon-fullscreen::before {
+  content: "\e735";
+}
+
+.icon-user::before {
+  content: '\e6a6';
+}
+
+.icon-chakan::before {
+  content: '\e6f5';
+}
+
+.icon-time::before {
+  content: '\e709';
+}
+
+.icon-tri-down::before {
+  content: '\e6bd';
+}
+
+.icon-arrow-down::before {
+  content: '\e61b';
+}
+
+.icon-back::before {
+  content: '\e667';
+}
+
+.icon-link::before {
+  content: '\e6f6';
+}
+
+.icon-source {
+  display: inline-block;
+  transform: rotateY(180deg);
+
+  &::before {
+    content: '\e6f6';
+  }
+}
+
+.icon-hot::before {
+  content: '\e737';
+}
+
+.icon-article::before {
+  content: '\e6fc';
+}
+
+.icon-wenhao::before {
+  content: '\e64e';
+}
+
+// 弹窗
+.icon-modal-origin::before {
+  content: '\e75f';
+}
+
+.icon-modal-time::before {
+  content: '\e75d';
+}
+
+.icon-modal-author::before {
+  content: '\e761';
+}
+
+.icon-modal-website::before {
+  content: '\e75e';
+}
+
+.icon-modal-property::before {
+  content: '\e760';
+}
+
+.icon-modal-origin-url::before {
+  content: '\e762';
+}
+
+// 用户设置
+.icon-unit::before {
+  content: '\e739';
+}
+
+.fw300 {
+  font-weight: 300;
+}
+
+.fw400 {
+  font-weight: 400;
+}
+
+.fw500 {
+  font-weight: 500;
+}
+
+.fw600 {
+  font-weight: 600;
+}

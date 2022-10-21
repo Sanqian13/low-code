@@ -1,0 +1,35 @@
+<div class="single-list" [ngStyle]="{ height: contentHeight }">
+  <!-- empty -->
+  <app-empty *ngIf="!loading && !listDatas && listDatas.length == 0"></app-empty>
+
+  <!-- loading -->
+  <nz-spin *ngIf="loading" [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+
+  <!-- list -->
+  <!-- <ng-container [hidden]="loading"> -->
+    <app-swiper-auto [hidden]="loading || !isData" #singleSwiper [slidesPerView]="slidesPerViewNum" [mousewheel]="mousewheel" [direction]="'vertical'" [swiperCont]="swiperID">
+      <div swiperSlide class="swiper-slide single-list-wraper" *ngFor="let item of listDatas; let i = index"
+        [ngClass]="{ 'swiper-line': swiperLine == true, 'single-list-wraper-active': activeIndex == i }">
+        <!-- 列表左侧index -->
+        <div class="icon-number-bg">{{ i + 1 }}</div>
+        <!-- 列表右侧 -->
+        <div class="single-list-item">
+          <!-- 标题 -->
+          <div class="single-list-title">
+            <a href="javascript:void(0);" class="title nowrap" (click)="openData(i)">{{item.articleTitle}}</a>
+          </div>
+          <!-- 底部 -->
+          <div class="single-list-bottom">
+            路径：
+            <ng-container *ngFor="let path of item.articlePath; let i = index;">
+              <span class="path">
+                {{path}}
+              </span>
+              <span *ngIf="i !== item.articlePath.length - 1">>></span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </app-swiper-auto>
+  <!-- </ng-container> -->
+</div>

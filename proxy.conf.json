@@ -1,0 +1,8 @@
+{
+    "/wrd": {
+        "target": "http://mmp-beta.wrd.cn",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

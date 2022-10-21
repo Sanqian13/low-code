@@ -1,0 +1,47 @@
+<div class="account-list" [ngStyle]="{ height: contentHeight }">
+  <!-- empty -->
+  <app-empty *ngIf="!loading && (!listDatas || listDatas.length == 0)"></app-empty>
+
+  <!-- loading -->
+  <nz-spin *ngIf="loading" [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+
+  <!-- list -->
+  <ng-container *ngIf="!loading && listDatas && listDatas.length">
+    <app-swiper-auto #singleSwiper [autoplayShow]="true" [effect]="effect" [delay]="delay" [virtual]="virtual"
+      [slidesPerView]="slidesPerViewNum" [mousewheel]="mousewheel" [direction]="'vertical'" [swiperCont]="swiperID">
+      <div swiperSlide class="swiper-slide account-list-wraper" *ngFor="let item of listDatas; let i = index"
+        [ngClass]="{ 'content-line': swiperLine == true}">
+        <!-- 上部 -->
+        <div class="flex-between">
+          <!-- 左侧头像 -->
+          <div class="account-avatar verified verified-{{verifiedType}}">
+            <img *ngIf="item.profileImageUrl" [src]="item.profileImageUrl" alt="头像">
+            <img *ngIf="!item.profileImageUrl" src="/assets/images/default_avatar.png" alt="默认头像">
+          </div>
+          <!-- 右侧标题信息 -->
+          <div class="account-list-content" (click)="openData(item)">
+            <!-- 标题 -->
+            <div class="author">{{item.author}}</div>
+            <div class="title" [ngClass]="{'text-clamp3': showBottom == false, 'nowrap': showBottom == true}" [innerHtml]="showBottom ? item.title : item.content">{{showBottom ? item.title : item.content}}</div>
+          </div>
+        </div>
+        <!-- 底部 -->
+        <div *ngIf="showBottom" class="account-list-bottom">
+          <div>
+            <i class="{{bottomConfig[0].icon}}"></i>
+            {{bottomConfig[0].label}}: <span>
+              {{item[bottomConfig[0].key] | date: 'yyyy年MM月dd日'}}
+            </span>
+          </div>
+
+          <div>
+            <i class="{{bottomConfig[1].icon}}"></i>
+            {{bottomConfig[1].label}}: <span class="{{bottomConfig[1].color}}">
+              {{item[bottomConfig[1].key]}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </app-swiper-auto>
+  </ng-container>
+</div>

@@ -1,0 +1,30 @@
+<div class="height-full width-full"
+  style="background-image: url(/assets/images/panel/pie3d-bg.png); background-size: 100% 100%;">
+  <!-- empty -->
+  <app-empty *ngIf="!loading && list && list.length == 0"></app-empty>
+
+  <!-- loading -->
+
+  <nz-spin *ngIf="loading" [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+
+  <!-- list -->
+  <ng-container *ngIf="!loading && list && list.length">
+    <div class="height-full width-full flex-between">
+      <div style="width: 18rem;" class="height-full">
+        <app-pie [chartData]="list"></app-pie>
+      </div>
+      <div style="width: calc(100% - 18rem);" class="height-full">
+        <ng-container *ngFor="let item of list; let i = index;">
+          <div class="health-legend">
+            <div class="legend-icon legend-icon-{{i}}"></div>
+            <div class="legend-text">
+              <div>{{item.name}}信息量</div>
+              <div class="legend-value legend-value-{{i}}">{{item.value}}</div>
+            </div>
+            <app-divider class="legend-divider"></app-divider>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>

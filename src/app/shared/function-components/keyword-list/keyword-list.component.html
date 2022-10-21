@@ -1,0 +1,33 @@
+<div class="keyword-list clearfix" [ngStyle]="{'height': height}">
+  <!-- loading -->
+  <ng-container *ngIf="loading">
+    <nz-spin [nzSpinning]="loading" style="width: 100%; height: 100%"></nz-spin>
+  </ng-container>
+  <!-- list -->
+  <ng-container *ngIf="!loading">
+    <div *ngIf="mode !== 3" class="left" [ngClass]="{'width-full': mode == 2}">
+      <div class="keyword-title">正面高频词</div>
+      <div *ngIf="zmKeywordData.length; else empty" class="keyword-wraps blue">
+        <ng-container *ngFor="let item of zmKeywordData">
+          <a href="javascript:;" class="item" [ngClass]="{'visible-0': item.name == '占位'}">
+            <span class="nowrap">{{ item.name }}</span>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+    <div *ngIf="mode !== 2" class="right" [ngClass]="{'width-full m0': mode == 3}">
+      <div class="keyword-title">负面高频词</div>
+      <div *ngIf="fmKeywordData.length; else empty" class="keyword-wraps yellow">
+        <ng-container *ngFor="let item of fmKeywordData">
+          <a href="javascript:;" class="item" [ngClass]="{'visible-0': item.name == '占位'}">
+            <span class="nowrap">{{ item.name}}</span>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #empty>
+  <app-empty></app-empty>
+</ng-template>

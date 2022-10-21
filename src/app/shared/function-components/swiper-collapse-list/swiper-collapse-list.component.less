@@ -1,0 +1,202 @@
+@import 'src/assets/css/variable.less';
+
+.collapse-list {
+  user-select: none;
+
+  // 底部分割线
+  .collapse-list-wraper {
+    height: 4.45rem;
+    position: relative;
+    // padding: 0.3rem 0;
+    // transition: all .38s;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: calc(100% - 1.5rem);
+      border-bottom: 1px dashed rgba(49, 74, 101, 0.7);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .collapse-swiper-slide {
+    width: 100%;
+    height: 3.85rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &::before {
+      width: 0;
+      height: 3.85rem;
+      margin-top: 0.3rem;
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-image: url('/assets/images/panel/single-active-bg.png');
+      background-size: 100% 100%;
+      // background: linear-gradient(90deg, rgba(26, 32, 41, 0.5) 0%, rgba(80, 199, 255, 0.2) 71%, rgba(80, 187, 255, 0.1) 100%);
+      background-clip: content-box;
+      border-radius: 5px;
+      transition: all .5s cubic-bezier(.215, .61, .355, 1);
+    }
+
+    &-active,
+    &:hover {
+      .title {
+        font-weight: 500 !important;
+        opacity: 1 !important;
+      }
+
+      &:before {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
+
+  .collapse-expand-height {
+    height: auto;
+  }
+
+  // index
+  .icon-number-bg {
+    width: .rem(42)[@rem];
+    height: .rem(42)[@rem];
+    text-align: center;
+    line-height: .rem(42)[@rem];
+    font-size: .rem(20)[@rem];
+    font-family: 'PangMenZhengDao';
+    font-weight: 400;
+    color: #3EC5DA;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 2.1rem;
+      height: 2.1rem;
+      background: url(/assets/images/icon/swiper-index-bg.png) no-repeat;
+      background-size: 100% 100%;
+      animation: radar-beam 3s infinite linear;
+      transform: translate(0, 0);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .collapse-list-item {
+    width: calc(100% - 3.5rem);
+    height: 100%;
+    margin-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.7rem 0.6rem 0.7rem 0;
+
+    .title {
+      display: inline-block;
+      font-size: .rem(18)[@rem];
+      font-weight: 400;
+      color: #FFF;
+      opacity: 0.76;
+    }
+
+  }
+
+  .collapse-list-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .collapse-list-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #B6C1CD;
+    font-weight: 400;
+    opacity: 0.76;
+
+    .spread-hot {
+      width: 6.1rem;
+      min-width: 121px;
+      text-align: left;
+    }
+  }
+
+  .path {
+    color: #72CDF8;
+    cursor: pointer;
+  }
+}
+
+
+// 右侧展开icon
+.icon-expand {
+  right: 1rem;
+  font-size: 0.7rem;
+  color: #3EA5BB;
+
+  &:hover {
+    animation: beat-up-down 1s linear infinite;
+  }
+
+  transition: all .3s linear;
+}
+
+.icon-collapse {
+  transform: rotate(180deg);
+  transition: all .3s linear;
+}
+
+.manuscript-list {
+  // height: 3.65rem;
+  // overflow: hidden;
+  // transition: all .38s;
+
+  background: linear-gradient(90deg, #171B24 0%, #12151C 51%, #171B24 100%);
+  border-radius: 5px;
+  // max-height: 11rem;
+  // overflow: auto;
+
+  li {
+    position: relative;
+    height: 3.7rem;
+    margin-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.7rem 0.6rem 0.7rem 0;
+
+    .title {
+      display: inline-block;
+      font-size: .rem(17)[@rem];
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      border-bottom: 1px dashed rgba(49, 74, 101, 0.7);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+
+}

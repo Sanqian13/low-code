@@ -1,0 +1,196 @@
+// @import "~@delon/theme/styles/default";
+@mainColor: #76fbf6;
+@textColor: #76fbf6;
+@textColor2: #E4AC19;
+
+:host {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+
+  ::ng-deep {
+
+
+    .login-content {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: #1b1f28 url("/assets/images/login/login_bg.png") center center no-repeat;
+      background-size: cover;
+
+      & .login-wraper {
+        width: 100%;
+        height: 100%;
+        padding: 0 5rem;
+        display: flex;
+        align-items: center;
+        -webkit-box-pack: space-between;
+        -ms-flex-pack: space-between;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+      }
+    }
+
+    // 左侧模型
+    .login-model {
+      img {
+        width: 46.25rem;
+        height: 36.45rem;
+      }
+    }
+
+    // 右侧登录盒子
+    .login-wrap {
+      width: 32.25rem;
+      text-align: center;
+
+      & .login-wrap-title {
+        margin-bottom: 1.9rem;
+
+        img {
+          width: 100%;
+          height: 3.75rem;
+        }
+      }
+
+      & .login-wrap-content {
+        width: 28.5rem;
+        height: 27.55rem;
+        margin: 0 auto;
+        padding: 6.35rem 2rem 0 3rem;
+        background: url('/assets/images/login/login_box_bg.png');
+        background-size: 100% 100%;
+        color: #fff;
+      }
+
+      .login-btn {
+        margin-top: 2rem;
+        height: 3.25rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #FFF;
+
+        border: unset;
+        background: linear-gradient(90deg, #24657B 0%, #3AA4BA 100%);
+        box-shadow: 26px 44px 27px 0px rgba(56, 93, 197, 0.08);
+
+        border-radius: 10px;
+      }
+
+      .ant-input-affix-wrapper {
+        border: unset;
+        border-radius: 0;
+        border-bottom: 1px solid #374C57;
+
+      }
+
+      .ant-input-affix-wrapper-focused,
+      .ant-input-affix-wrapper:focus {
+        box-shadow: unset !important;
+        border-bottom: 1px solid #49C6DF;
+      }
+
+      .ant-form-item-has-error .ant-input,
+      .ant-form-item-has-error .ant-input-affix-wrapper,
+      .ant-form-item-has-error .ant-input-affix-wrapper:hover,
+      .ant-form-item-has-error .ant-input:hover {
+        background: rgba(13, 38, 51, 0.4);
+      }
+
+      .ant-form-item-explain.ant-form-item-explain-error {
+        text-align: left;
+      }
+
+      .ant-input-prefix {
+        margin-right: 1rem;
+      }
+
+      .ant-form-item-has-error .ant-input-affix-wrapper,
+      .ant-form-item-has-error .ant-input-affix-wrapper:hover {
+        border-bottom: 1px solid #ff4d4f !important;
+      }
+
+      input::-webkit-input-placeholder {
+        font-size: 1.2rem !important;
+        font-weight: 400 !important;
+        color: #688999 !important;
+      }
+
+    }
+
+    // 底部
+    .copyright {
+      font-size: 0.6rem;
+      position: absolute;
+      bottom: 1rem;
+      text-align: center;
+      width: 100%;
+
+      img {
+        width: 0.7rem;
+        margin-right: 5px;
+        margin-top: -3px;
+      }
+
+      .pl10 {
+        padding-left: 10px;
+      }
+
+      .v-a-m {
+        vertical-align: middle;
+        color: rgba(255, 255, 255, 0.55);
+      }
+    }
+
+    .error-alert {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      color: rgba(0, 0, 0, 0.65);
+      font-variant: tabular-nums;
+      line-height: 1.5;
+      list-style: none;
+      font-feature-settings: "tnum";
+      position: relative;
+      padding: 0.4rem 0.75rem 0.4rem 1.6rem;
+      word-wrap: break-word;
+      border-radius: 4px;
+      background-color: #76fbf559;
+      border: 1px solid #76fbf5;
+      text-align: left;
+      font-size: 0.7rem;
+
+      i {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        background: url(/assets/images/login/error.png) no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0.45rem;
+        left: 0.5rem;
+      }
+
+      span {
+        color: rgba(255, 255, 255, 0.85);
+        vertical-align: middle;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .des {
+      padding-top: 1.5rem;
+      border-top: 2px solid #374C57;
+
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .text-color2 {
+      color: @textColor2;
+    }
+  }
+}

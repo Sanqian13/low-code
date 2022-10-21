@@ -1,0 +1,160 @@
+.myTooltip {
+  position: relative;
+  .pos {
+    display: inline-block;
+    width: 17px;
+    height: 16px;
+    background: url(/assets/images/tooltip/pos.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: -56px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .label {
+    display: inline-block;
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #DCEDFB;
+    margin-bottom: 0.15rem;
+    white-space: normal;
+  }
+  .text {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: #C8DAEF;
+  }
+  .num {
+    color: #F8AA0E;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding-left: 0.25rem;
+  }
+}
+.myTooltip::before {
+  // display: block;
+  // position: absolute;
+  // content: "";
+  // width: 35px;
+  // height: 1px;
+  // background: #3de1cf;
+  // top: 50px;
+  // left: -35px;
+}
+.myTooltip::after {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 50px;
+  border-left: 1px solid #3de1cf;
+  left: 50%;
+}
+.myTooltip .myTooltipBody {
+  max-width: 240px;
+  max-height: 100px;
+  background: url("/assets/images/tooltip/tooltip-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.9rem 1.25rem 0.6rem;
+}
+
+
+.mylabel {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #e3f4f7;
+  padding-top: 0.5rem;
+  padding-left: 0.9rem;
+}
+.mycontent {
+  font-size: 1.2rem;
+  font-family: "Pangmen";
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  color: #ed862a;
+  padding-left: 0.9rem;
+}
+.explainTooltip {
+  max-width: 270px;
+  .ant-tooltip-inner {
+    background: url(/assets/images/tooltip/new-tooltip-bg.png) no-repeat;
+    background-size: 100% 100%;
+    font-weight: 400;
+    color: #dbedfb;
+    font-size: 0.8rem;
+    padding: 1rem;
+    border: 0;
+    border-radius: 0;
+  }
+}
+.explainTooltip-more {
+  max-width: 270px;
+  .ant-tooltip-inner {
+    background: url(/assets/images/tooltip/new-tooltip-bg2.png) no-repeat;
+    background-size: 100% 100%;
+    font-weight: 400;
+    color: #dbedfb;
+    font-size: 0.8rem;
+    padding: 1rem;
+    border: 0;
+    border-radius: 0;
+  }
+}
+
+
+.border-style {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.border-style span:nth-child(1) {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  padding: 2px;
+  border-style: solid;
+  border-color: #78fcf6;
+  border-width: 1px 0 0 1px;
+}
+
+.border-style span:nth-child(2) {
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  padding: 2px;
+  border-style: solid;
+  border-color: #78fcf6;
+  border-width: 1px 1px 0 0;
+}
+
+.border-style span:nth-child(3) {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  padding: 2px;
+  border-style: solid;
+  border-color: #78fcf6;
+  border-width: 0 1px 1px 0;
+}
+
+.border-style span:nth-child(4) {
+  position: absolute;
+  left: -1px;
+  bottom: -1px;
+  padding: 2px;
+  border-style: solid;
+  border-color: #78fcf6;
+  border-width: 0 0 1px 1px;
+}

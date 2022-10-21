@@ -1,0 +1,132 @@
+<nz-modal [nzWidth]="modalWidth" [nzClassName]="'fss-modal'" [nzFooter]="null" [(nzVisible)]="isDetailsVisible"
+  nzTitle="" (nzOnCancel)="hideModal()">
+  <!-- 文章详情弹框 -->
+  <ng-container *ngIf="modalType == 1">
+    <!-- title -->
+    <div class="title">
+      <a href="javascript:void(0);" appOpenUrl [openUrl]="detailData.webpageUrl">
+        <span class="nowrap" [innerHTML]="detailData.title"></span>
+        <i class="icon ml10 icon-link" style="font-size: 0.9rem; font-weight: 300"></i>
+      </a>
+    </div>
+    <div class="fss-modal-body">
+      <ng-container *ngIf="loading">
+        <nz-spin [nzSpinning]="loading" style="width: 100%; height: 100%; margin-top: 28%"></nz-spin>
+      </ng-container>
+      <ng-container *ngIf="!loading && detailData">
+        <div class="info-table">
+          <!-- 上部分详情表格 -->
+          <table border="0">
+            <tbody>
+              <tr>
+                <td class="key bg1">
+                  <div style="width: 6.5rem">
+                    <i class="icon mr10 icon-modal-origin"></i>来源
+                  </div>
+                </td>
+                <td class="value bg2">
+                  <!-- <ng-container *ngIf="detailData.originType == 'app'">客户端</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'baokan'">报刊</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'bk'">博客</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'facebook'">脸书</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'jw'">外媒</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'lt'">论坛</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'sp'">视频</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'twitter'">推特</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'wb'">微博</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'wx'">微信</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'wz'">网站</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'xw'">新闻</ng-container>
+                  <ng-container *ngIf="detailData.originType == 'zw'">政务</ng-container> -->
+                  <div style="width: 10rem">
+                    {{ detailData.captureWebsiteName || "无" }}
+                  </div>
+                </td>
+                <td class="key bg1">
+                  <div style="width: 6.5rem"><i class="icon mr10 icon-modal-time"></i>发布时间</div>
+                </td>
+                <td class="value bg2">
+                  <div style="width: 20.8rem">
+                    {{ detailData.published | date: "yyyy年MM月dd日 HH时mm分ss秒" }}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="key bg1">
+                  <div style="width: 6.5rem"><i class="icon mr10 icon-modal-author"></i>作者</div>
+                </td>
+                <td class="value bg2 nowrap">
+                  <div style="width: 10rem">{{ detailData.author || "无" }}</div>
+                </td>
+                <td class="key bg1">
+                  <div style="width: 6.5rem"><i class="icon mr10 icon-modal-website"></i>发布网站</div>
+                </td>
+                <td class="value bg2">
+                  <div style="width: 20.8rem">
+                    {{ detailData.captureWebsiteName || "无" }}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="key bg1">
+                  <div style="width: 6.5rem">
+                    <i class="icon mr10 icon-modal-property"></i>属性
+                  </div>
+                </td>
+                <td class="value bg2">
+                  <div style="width: 10rem">
+                    <ng-container *ngIf="detailData.customFlag1 == 2">敏感</ng-container>
+                    <ng-container *ngIf="detailData.customFlag1 == 4">非敏感</ng-container>
+                    <ng-container *ngIf="detailData.customFlag1 == 5">中性</ng-container>
+                  </div>
+                </td>
+                <td class="key bg1">
+                  <div style="width: 6.5rem">
+                    <i class="icon mr10 icon-modal-origin-url"></i>原文链接
+                  </div>
+                </td>
+                <td class="value bg2">
+                  <div style="width: 20.8rem">
+                    <a class="nowrap" [href]="detailData.webpageUrl" target="_blank" style="
+                    display: inline-block;
+                    color: #3EC5DA;
+                    width: 80%;">
+                      {{ detailData.webpageUrl }}</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <div class="panel-title">
+            <img src="/assets/images/icon/icon-jiantou.png" alt="正文" />正文
+          </div>
+          <div class="panel-body">
+            <ng-container *ngIf="!loading && detailData.content">
+              <ul class="content-img" *ngIf="detailData.imgUrls && detailData.imgUrls.length">
+                <li *ngFor="let img of detailData.imgUrls">
+                  <br>
+                  <img [src]="img" alt="image" />
+                  <br>
+                </li>
+              </ul>
+              <div class="content" [innerHTML]="detailData.content"></div>
+              <ul class="content" *ngIf="detailData.ocrPropertyList && detailData.ocrPropertyList.length">
+                <li *ngFor="let ocr of detailData.ocrPropertyList">
+                  <div *ngIf="ocr.ocrContent" [innerHTML]="ocr.ocrContent"></div>
+                  <img [src]="ocr.url" alt="image">
+                  <br>
+                </li>
+              </ul>
+            </ng-container>
+            <ng-container
+              *ngIf="!loading && !detailData.content && !detailData.imgUrls && !detailData.ocrPropertyList">
+              <app-empty></app-empty>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</nz-modal>

@@ -1,0 +1,34 @@
+<ng-container *ngIf="loading">
+  <nz-spin [nzSpinning]="loading"></nz-spin>
+</ng-container>
+<ng-container *ngIf="!loading && emotionInfo.length == 0">
+  <app-empty></app-empty>
+</ng-container>
+<ng-container *ngIf="!loading && emotionInfo && emotionInfo.length > 0">
+  <div class="wrd-emotion-info" [ngClass]="sm" [ngStyle]="{'height': height}">
+    <div class="item" *ngFor="let item of emotionInfo">
+      <div class="item-sub">
+        <ng-container *ngIf="item.name == '喜悦'">
+          <img src="/assets/images/emotion/em-xy.png" alt="" />
+        </ng-container>
+        <ng-container *ngIf="item.name == '中性'">
+          <img src="/assets/images/emotion/em-zx.png" alt="" />
+        </ng-container>
+        <ng-container *ngIf="item.name == '悲伤'">
+          <img src="/assets/images/emotion/em-bs.png" alt="" />
+        </ng-container>
+        <ng-container *ngIf="item.name == '愤怒'">
+          <img src="/assets/images/emotion/em-fn.png" alt="" />
+        </ng-container>
+        <ng-container *ngIf="item.name == '惊奇'">
+          <img src="/assets/images/emotion/em-jq.png" alt="" />
+        </ng-container>
+        <ng-container *ngIf="item.name == '恐惧'">
+          <img src="/assets/images/emotion/em-kj.png" alt="" />
+        </ng-container>
+        <p class="name">{{ item.name }} {{ item.proportion }}</p>
+        <div class="num">{{ item.value }}</div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,18 @@
+<div
+  class="swiper-container"
+  [id]="swiperCont"
+  (mouseenter)="swiperEnter()"
+  (mouseleave)="swiperLeave()"
+>
+  <div class="swiper-wrapper">
+    <ng-content select="[swiperSlide]"></ng-content>
+  </div>
+  <!-- 如果需要分页器 -->
+  <div class="swiper-pagination" *ngIf="paginationShow == true"></div>
+  <!-- 如果需要导航按钮 -->
+  <ng-container *ngIf="swiperButton == true">
+    <div class="{{ prevButton }}"></div>
+    <div class="{{ nextButton }}"></div>
+  </ng-container>
+</div>
+

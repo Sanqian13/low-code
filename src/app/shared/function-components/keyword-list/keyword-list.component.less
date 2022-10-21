@@ -1,0 +1,77 @@
+:host {
+  ::ng-deep {
+    .keyword-list {
+
+      .left,
+      .right {
+        width: calc(50% - 1rem);
+        height: 100%;
+        float: left;
+      }
+
+      .right {
+        margin-left: 2rem;
+      }
+
+      .keyword-title {
+        text-align: center;
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+        font-weight: 300;
+        color: #DCEDFB;
+      }
+    }
+
+    .keyword-wraps {
+      text-align: center;
+      line-height: 0;
+      height: calc(100% - 1.6rem);
+      display: flex;
+      flex-wrap: wrap;
+      // justify-content: space-between;
+      // align-content: space-between;
+
+      .item {
+        display: inline-block;
+        // padding: 0.3rem;
+        font-size: 0.6rem;
+        line-height: 0;
+        margin-right: calc((100% - 3 * 3.75rem) / 2);
+
+        span {
+          display: inline-block;
+          width: 3.75rem;
+          height: 1.5rem;
+          text-align: center;
+          line-height: 1.5rem;
+        }
+      }
+
+      .item:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &.blue {
+
+        span {
+          color: #ddfdfc;
+          background: url(/assets/images/highWords/keyword-zm.png) no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+
+      &.yellow {
+
+        span {
+          color: #ded59b;
+          background: url(/assets/images/highWords/keyword-fm.png) no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+    .visible-0 {
+      visibility: hidden;
+    }
+  }
+}
